@@ -12,7 +12,7 @@
 
     <style>
         /* ==========================================================================
-           1. CSS VARIABLES & THEMING SYSTEM (DEFAULT BLACK COLOR PALETTE)
+           1. CORE VARIABLES & BLACK COLOR PALETTE
            ========================================================================== */
         :root {
             --primary: #111827;
@@ -31,9 +31,8 @@
             --shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             --font-family: 'Cairo', system-ui, -apple-system, sans-serif;
-            --font-scale: 1rem;
             
-            /* CV Dynamic Primary Accent (Defaults to Black) */
+            /* CV Dynamic Primary Accent */
             --cv-primary: #111827;
             --cv-secondary: #374151;
         }
@@ -49,7 +48,7 @@
         }
 
         /* ==========================================================================
-           2. BASE STYLES & RESET
+           2. RESET & BASE STYLES
            ========================================================================== */
         *, *::before, *::after {
             box-sizing: border-box;
@@ -167,7 +166,7 @@
         }
 
         /* ==========================================================================
-           5. LEFT SIDEBAR (FORMS & TABS)
+           5. LEFT SIDEBAR (CONTROL TABS & FORMS)
            ========================================================================== */
         .sidebar {
             background: var(--card-bg);
@@ -241,9 +240,7 @@
             transition: var(--transition);
         }
 
-        .accordion-header:hover {
-            background: var(--bg);
-        }
+        .accordion-header:hover { background: var(--bg); }
 
         .accordion-body {
             padding: 16px;
@@ -252,13 +249,9 @@
             background: var(--card-bg);
         }
 
-        .accordion-item.active .accordion-body {
-            display: block;
-        }
+        .accordion-item.active .accordion-body { display: block; }
 
-        .form-group {
-            margin-bottom: 14px;
-        }
+        .form-group { margin-bottom: 14px; }
 
         .form-label {
             display: block;
@@ -408,7 +401,7 @@
         }
 
         /* ==========================================================================
-           7. TEMPLATE STYLES & PRESETS (8 DISTINCT TEMPLATES)
+           7. CV PREVIEW STYLES
            ========================================================================== */
         .cv-header { margin-bottom: 20px; }
         .cv-name { font-size: 2.2rem; font-weight: 800; color: var(--cv-primary); line-height: 1.1; }
@@ -425,29 +418,22 @@
         .cv-skill-tag { background: #F3F4F6; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; color: #111827; border: 1px solid #E5E7EB; }
         .cv-avatar { width: 90px; height: 90px; object-fit: cover; border-radius: 50%; }
 
-        /* Template Variations */
+        /* Templates */
         .tmpl-modern { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
         .tmpl-modern .side-col { background: #F8FAFC; padding: 15px; border-radius: 8px; }
-
         .tmpl-minimal .cv-name { font-size: 2.5rem; text-align: center; }
         .tmpl-minimal .cv-title { text-align: center; }
         .tmpl-minimal .cv-contact { justify-content: center; }
         .tmpl-minimal .cv-section-title { border-bottom: 1px solid #E5E7EB; text-align: center; }
-
         .tmpl-corporate .cv-header { border-bottom: 3px double var(--cv-primary); padding-bottom: 15px; }
-
         .tmpl-creative .cv-header { background: var(--cv-primary); color: #FFF !important; padding: 20px; border-radius: 12px; margin-bottom: 25px; }
         .tmpl-creative .cv-name, .tmpl-creative .cv-title, .tmpl-creative .cv-contact { color: #FFF !important; }
-
         .tmpl-executive .cv-header { display: flex; align-items: center; justify-content: space-between; }
-
         .tmpl-ats * { font-family: Arial, sans-serif !important; }
         .tmpl-ats .cv-section-title { border-bottom: 1px solid #000; color: #000; }
-
         .tmpl-dark { background: #111827; color: #F9FAFB !important; }
         .tmpl-dark .cv-item-sub, .tmpl-dark .cv-item-desc, .tmpl-dark .cv-contact { color: #9CA3AF !important; }
         .tmpl-dark .cv-skill-tag { background: #1F2937; color: #F3F4F6; border-color: #374151; }
-
         .tmpl-elegant { font-family: 'Times New Roman', serif; }
         .tmpl-elegant .cv-section-title { font-style: italic; border-bottom: 1px dashed var(--cv-primary); }
 
@@ -457,7 +443,7 @@
         .img-square { border-radius: 0 !important; }
 
         /* ==========================================================================
-           8. ATS ANALYZER PANEL STYLES
+           8. ATS ANALYZER STYLES
            ========================================================================== */
         .score-circle {
             width: 90px;
@@ -496,7 +482,7 @@
         }
 
         /* ==========================================================================
-           9. TOAST NOTIFICATIONS & PRINT OPTIMIZATION
+           9. TOASTS & PRINTING
            ========================================================================== */
         .toast-container {
             position: fixed;
@@ -549,32 +535,32 @@
         <div class="toolbar">
             <div class="brand-title">
                 <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                <span id="appLogoTitle">سيرتي الاحترافية Pro</span>
+                <span id="txtLogoTitle">سيرتي الاحترافية Pro</span>
             </div>
 
             <div class="toolbar-group">
-                <button class="btn btn-primary" onclick="window.print()" title="تصدير كـ PDF أو طباعة">
+                <button class="btn btn-primary" onclick="window.print()">
                     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"></path></svg>
-                    <span id="lblPrint">طباعة / PDF</span>
+                    <span id="txtBtnPrint">طباعة / PDF</span>
                 </button>
-                <button class="btn btn-secondary" onclick="exportJSON()" title="تصدير ملف بيانات">
+                <button class="btn btn-secondary" onclick="exportJSON()">
                     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    <span>JSON</span>
+                    <span id="txtBtnExport">JSON</span>
                 </button>
-                <button class="btn btn-secondary" onclick="document.getElementById('jsonFileInput').click()" title="استيراد بيانات">
+                <button class="btn btn-secondary" onclick="document.getElementById('jsonFileInput').click()">
                     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-                    <span>استيراد</span>
+                    <span id="txtBtnImport">استيراد</span>
                 </button>
                 <input type="file" id="jsonFileInput" accept=".json" style="display:none;" onchange="importJSON(event)">
             </div>
 
             <div class="toolbar-group">
-                <button class="btn btn-secondary btn-icon" onclick="undo()" title="تراجع (Ctrl+Z)"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></button>
-                <button class="btn btn-secondary btn-icon" onclick="redo()" title="إعادة (Ctrl+Y)"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg></button>
+                <button class="btn btn-secondary btn-icon" onclick="undo()" title="تراجع / Undo"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></button>
+                <button class="btn btn-secondary btn-icon" onclick="redo()" title="إعادة / Redo"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg></button>
                 
                 <button class="btn btn-secondary" onclick="toggleLang()" id="btnLangToggle">English</button>
-                <button class="btn btn-secondary btn-icon" onclick="toggleDarkMode()" title="الوضع الداكن/الفاتح"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button>
-                <button class="btn btn-danger btn-icon" onclick="resetData()" title="إعادة ضبط"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                <button class="btn btn-secondary btn-icon" onclick="toggleDarkMode()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button>
+                <button class="btn btn-danger btn-icon" onclick="resetData()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                 
                 <div class="save-status">
                     <span class="status-dot"></span>
@@ -592,10 +578,10 @@
         <!-- SIDEBAR CONTROLS -->
         <div class="sidebar">
             <div class="sidebar-tabs">
-                <button class="tab-btn active" onclick="switchTab('content')">📝 المحتوى</button>
-                <button class="tab-btn" onclick="switchTab('design')">🎨 التصميم</button>
-                <button class="tab-btn" onclick="switchTab('suggestions')">💡 مكتبة الاقتراحات</button>
-                <button class="tab-btn" onclick="switchTab('ats')">📊 فحص ATS</button>
+                <button class="tab-btn active" id="tabBtnContent" onclick="switchTab('content')">📝 المحتوى</button>
+                <button class="tab-btn" id="tabBtnDesign" onclick="switchTab('design')">🎨 التصميم</button>
+                <button class="tab-btn" id="tabBtnSug" onclick="switchTab('suggestions')">💡 الاقتراحات</button>
+                <button class="tab-btn" id="tabBtnAts" onclick="switchTab('ats')">📊 ATS</button>
             </div>
 
             <div class="sidebar-content">
@@ -605,76 +591,76 @@
                     <!-- Personal Details -->
                     <div class="accordion-item active">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>👤 البيانات الشخصية</span>
+                            <span id="headPersonal">👤 البيانات الشخصية</span>
                             <span>▼</span>
                         </div>
                         <div class="accordion-body">
                             <div class="photo-upload-box">
-                                <img id="photoPreview" class="photo-preview" src="https://via.placeholder.com/150" alt="صورة">
+                                <img id="photoPreview" class="photo-preview" src="https://via.placeholder.com/150" alt="photo">
                                 <div>
-                                    <button class="btn btn-secondary" onclick="document.getElementById('photoInput').click()">رفع صورة</button>
+                                    <button class="btn btn-secondary" id="lblUploadPhoto" onclick="document.getElementById('photoInput').click()">رفع صورة</button>
                                     <input type="file" id="photoInput" accept="image/*" style="display:none;" onchange="handlePhotoUpload(event)">
                                 </div>
                             </div>
-                            <div class="form-group"><label class="form-label">الاسم الكامل</label><input type="text" id="fullName" class="form-control" oninput="updateField('personal.fullName', this.value)"></div>
-                            <div class="form-group"><label class="form-label">المسمى الوظيفي</label><input type="text" id="profTitle" class="form-control" oninput="updateField('personal.title', this.value)"></div>
+                            <div class="form-group"><label class="form-label" id="lblFullName">الاسم الكامل</label><input type="text" id="fullName" class="form-control" oninput="updateField('personal.fullName', this.value)"></div>
+                            <div class="form-group"><label class="form-label" id="lblProfTitle">المسمى الوظيفي</label><input type="text" id="profTitle" class="form-control" oninput="updateField('personal.title', this.value)"></div>
                             <div class="grid-2">
-                                <div class="form-group"><label class="form-label">البريد الإلكتروني</label><input type="email" id="email" class="form-control" oninput="updateField('personal.email', this.value)"></div>
-                                <div class="form-group"><label class="form-label">رقم الهاتف</label><input type="text" id="phone" class="form-control" oninput="updateField('personal.phone', this.value)"></div>
+                                <div class="form-group"><label class="form-label" id="lblEmail">البريد الإلكتروني</label><input type="email" id="email" class="form-control" oninput="updateField('personal.email', this.value)"></div>
+                                <div class="form-group"><label class="form-label" id="lblPhone">رقم الهاتف</label><input type="text" id="phone" class="form-control" oninput="updateField('personal.phone', this.value)"></div>
                             </div>
                             <div class="grid-2">
-                                <div class="form-group"><label class="form-label">العنوان / المدينة</label><input type="text" id="address" class="form-control" oninput="updateField('personal.address', this.value)"></div>
-                                <div class="form-group"><label class="form-label">الموقع / رابط Portfolio / LinkedIn</label><input type="text" id="website" class="form-control" oninput="updateField('personal.website', this.value)"></div>
+                                <div class="form-group"><label class="form-label" id="lblAddress">العنوان / المدينة</label><input type="text" id="address" class="form-control" oninput="updateField('personal.address', this.value)"></div>
+                                <div class="form-group"><label class="form-label" id="lblWebsite">الموقع / LinkedIn</label><input type="text" id="website" class="form-control" oninput="updateField('personal.website', this.value)"></div>
                             </div>
-                            <div class="form-group"><label class="form-label">نبذة شخصية (About Me)</label><textarea id="summary" class="form-control" oninput="updateField('personal.summary', this.value)"></textarea></div>
+                            <div class="form-group"><label class="form-label" id="lblSummary">نبذة شخصية (About Me)</label><textarea id="summary" class="form-control" oninput="updateField('personal.summary', this.value)"></textarea></div>
                         </div>
                     </div>
 
                     <!-- Work Experience -->
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>💼 الخبرات المهنية</span>
+                            <span id="headExp">💼 الخبرات المهنية</span>
                             <span>▼</span>
                         </div>
                         <div class="accordion-body">
                             <div id="experienceList"></div>
-                            <button class="btn btn-secondary" style="width:100%;" onclick="addArrayItem('experiences')">+ إضافة خبرة عمل</button>
+                            <button class="btn btn-secondary" style="width:100%;" id="btnAddExp" onclick="addArrayItem('experiences')">+ إضافة خبرة عمل</button>
                         </div>
                     </div>
 
                     <!-- Education -->
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>🎓 المؤهلات التعليمية</span>
+                            <span id="headEdu">🎓 المؤهلات التعليمية</span>
                             <span>▼</span>
                         </div>
                         <div class="accordion-body">
                             <div id="educationList"></div>
-                            <button class="btn btn-secondary" style="width:100%;" onclick="addArrayItem('education')">+ إضافة مؤهل تعليمي</button>
+                            <button class="btn btn-secondary" style="width:100%;" id="btnAddEdu" onclick="addArrayItem('education')">+ إضافة مؤهل تعليمي</button>
                         </div>
                     </div>
 
                     <!-- Skills -->
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>⚡ المهارات</span>
+                            <span id="headSkills">⚡ المهارات</span>
                             <span>▼</span>
                         </div>
                         <div class="accordion-body">
                             <div id="skillsList"></div>
-                            <button class="btn btn-secondary" style="width:100%;" onclick="addArrayItem('skills')">+ إضافة مهارة</button>
+                            <button class="btn btn-secondary" style="width:100%;" id="btnAddSkill" onclick="addArrayItem('skills')">+ إضافة مهارة</button>
                         </div>
                     </div>
 
                     <!-- Projects -->
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>🚀 المشاريع والشهادات</span>
+                            <span id="headProjects">🚀 المشاريع والشهادات</span>
                             <span>▼</span>
                         </div>
                         <div class="accordion-body">
                             <div id="projectsList"></div>
-                            <button class="btn btn-secondary" style="width:100%;" onclick="addArrayItem('projects')">+ إضافة مشروع / شهادة</button>
+                            <button class="btn btn-secondary" style="width:100%;" id="btnAddProj" onclick="addArrayItem('projects')">+ إضافة مشروع / شهادة</button>
                         </div>
                     </div>
                 </div>
@@ -682,13 +668,13 @@
                 <!-- TAB 2: DESIGN & TEMPLATES -->
                 <div id="tabDesign" style="display:none;">
                     <div class="form-group">
-                        <label class="form-label">اختر القالب (8 قوالب احترافية)</label>
+                        <label class="form-label" id="lblTemplateSelect">اختر القالب</label>
                         <select id="templateSelect" class="form-control" onchange="changeTemplate(this.value)">
-                            <option value="modern">Modern (عصري مقسم)</option>
-                            <option value="minimal">Minimal (بسيط ونظيف)</option>
-                            <option value="corporate">Corporate (رسمي شركات)</option>
-                            <option value="creative">Creative (إبداعي مدمج)</option>
-                            <option value="executive">Executive (تنفيذي كبار)</option>
+                            <option value="modern">Modern (عصري مقسم / Sidebar Split)</option>
+                            <option value="minimal">Minimal (بسيط ونظيف / Minimalist)</option>
+                            <option value="corporate">Corporate (رسمي شركات / Corporate)</option>
+                            <option value="creative">Creative (إبداعي / Creative)</option>
+                            <option value="executive">Executive (تنفيذي كبار / Executive)</option>
                             <option value="ats">ATS Friendly (متوافق مع الأنظمة)</option>
                             <option value="dark">Dark Theme (داكن أنيق)</option>
                             <option value="elegant">Elegant (كلاسيكي فاخر)</option>
@@ -697,17 +683,17 @@
 
                     <div class="grid-2">
                         <div class="form-group">
-                            <label class="form-label">اللون الرئيسي</label>
+                            <label class="form-label" id="lblPrimaryColor">اللون الرئيسي</label>
                             <input type="color" id="primaryColorPicker" class="form-control" value="#111827" onchange="changeCVColor(this.value, 'primary')">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">اللون الثانوي</label>
+                            <label class="form-label" id="lblSecondaryColor">اللون الثانوي</label>
                             <input type="color" id="secondaryColorPicker" class="form-control" value="#374151" onchange="changeCVColor(this.value, 'secondary')">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">شكل الصورة الشخصية</label>
+                        <label class="form-label" id="lblPhotoShape">شكل الصورة الشخصية</label>
                         <select class="form-control" onchange="changePhotoShape(this.value)">
                             <option value="img-circle">دائري (Circle)</option>
                             <option value="img-rounded">حواف دائرية (Rounded)</option>
@@ -716,50 +702,36 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">حجم الخط</label>
+                        <label class="form-label" id="lblFontSize">حجم الخط</label>
                         <input type="range" min="0.8" max="1.2" step="0.05" value="1" class="form-control" oninput="changeFontSize(this.value)">
                     </div>
                 </div>
 
                 <!-- TAB 3: CATEGORIZED LOCAL SUGGESTIONS LIBRARY -->
                 <div id="tabSuggestions" style="display:none;">
-                    
                     <div class="form-group" style="background:var(--bg); padding:12px; border-radius:12px; border:1px solid var(--border);">
-                        <label class="form-label" style="font-size:0.9rem; color:var(--primary);">📂 اختر القسم الوظيفي:</label>
-                        <select class="form-control" id="categorySelect" onchange="switchCategory(this.value)" style="font-weight:700;">
-                            <option value="accounting">📊 قسم المحاسبة والمالية</option>
-                            <option value="admin">🏢 قسم إدارة الأعمال والتنفيذ</option>
-                            <option value="dev">💻 قسم البرمجة وتكنولوجيا المعلومات</option>
-                            <option value="sales">📈 قسم التسويق والمبيعات</option>
-                            <option value="design">🎨 قسم التصميم والإبداع الرقمي</option>
-                        </select>
+                        <label class="form-label" id="lblCatSelect" style="font-size:0.9rem; color:var(--primary);">📂 اختر القسم الوظيفي:</label>
+                        <select class="form-control" id="categorySelect" onchange="switchCategory(this.value)" style="font-weight:700;"></select>
                     </div>
 
                     <!-- Summaries Block -->
                     <div class="sug-block">
-                        <div class="sug-title">
-                            <span>📄 ملخصات شخصية جاهزة</span>
-                        </div>
+                        <div class="sug-title"><span id="lblSugSummaries">📄 ملخصات شخصية جاهزة</span></div>
                         <div id="categorySummaryContainer"></div>
                     </div>
 
                     <!-- Skills Block -->
                     <div class="sug-block">
-                        <div class="sug-title">
-                            <span>⚡ مهارات مقترحة للقسم (إضافة بنقرة)</span>
-                        </div>
+                        <div class="sug-title"><span id="lblSugSkills">⚡ مهارات مقترحة للقسم</span></div>
                         <div id="categorySkillsContainer"></div>
                     </div>
 
                     <!-- Action Verbs Block -->
                     <div class="sug-block">
-                        <div class="sug-title">
-                            <span>🚀 عبارات وأفعال إنجاز متخصصة</span>
-                        </div>
-                        <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px;">انقر لإدراج العبارة مباشرة في نص النبذة الشخصية:</p>
+                        <div class="sug-title"><span id="lblSugVerbs">🚀 عبارات وأفعال إنجاز متخصصة</span></div>
+                        <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px;" id="lblSugVerbsTip">انقر لإدراج العبارة مباشرة في نص النبذة الشخصية:</p>
                         <div id="categoryVerbsContainer"></div>
                     </div>
-
                 </div>
 
                 <!-- TAB 4: ATS CHECKER -->
@@ -768,8 +740,8 @@
                         <div class="score-circle" id="atsScoreCircle" style="--score: 85;">
                             <span class="score-val" id="atsScoreVal">85%</span>
                         </div>
-                        <h4 style="font-weight:700;">تقييم ملاءمة السيرة الذاتية</h4>
-                        <p style="font-size:0.8rem; color:var(--text-muted);">تحليل فحص نظام تتبع المتقدمين (ATS)</p>
+                        <h4 style="font-weight:700;" id="lblAtsTitle">تقييم ملاءمة السيرة الذاتية</h4>
+                        <p style="font-size:0.8rem; color:var(--text-muted);" id="lblAtsSub">تحليل فحص نظام تتبع المتقدمين (ATS)</p>
                     </div>
 
                     <div style="margin-top:15px;" id="atsTipsList"></div>
@@ -789,13 +761,350 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- ==========================================================================
-         JAVASCRIPT ENGINE & CATEGORIZED DATA
+         JAVASCRIPT ENGINE & DUAL-LANGUAGE SYSTEM
          ========================================================================== -->
     <script>
         /* ==========================================================================
-           1. INITIAL STATE & DATA
+           1. TRANSLATION DICTIONARY (i18n)
            ========================================================================== */
-        let currentLang = 'ar';
+        const i18n = {
+            ar: {
+                logoTitle: "سيرتي الاحترافية Pro",
+                btnPrint: "طباعة / PDF",
+                btnExport: "JSON",
+                btnImport: "استيراد",
+                saveStatus: "حفظ تلقائي...",
+                tabContent: "📝 المحتوى",
+                tabDesign: "🎨 التصميم",
+                tabSug: "💡 الاقتراحات",
+                tabAts: "📊 ATS",
+                headPersonal: "👤 البيانات الشخصية",
+                headExp: "💼 الخبرات المهنية",
+                headEdu: "🎓 المؤهلات التعليمية",
+                headSkills: "⚡ المهارات",
+                headProjects: "🚀 المشاريع والشهادات",
+                lblUploadPhoto: "رفع صورة",
+                lblFullName: "الاسم الكامل",
+                lblProfTitle: "المسمى الوظيفي",
+                lblEmail: "البريد الإلكتروني",
+                lblPhone: "رقم الهاتف",
+                lblAddress: "العنوان / المدينة",
+                lblWebsite: "الموقع / LinkedIn",
+                lblSummary: "نبذة شخصية (About Me)",
+                btnAddExp: "+ إضافة خبرة عمل",
+                btnAddEdu: "+ إضافة مؤهل تعليمي",
+                btnAddSkill: "+ إضافة مهارة",
+                btnAddProj: "+ إضافة مشروع / شهادة",
+                lblTemplateSelect: "اختر القالب",
+                lblPrimaryColor: "اللون الرئيسي",
+                lblSecondaryColor: "اللون الثانوي",
+                lblPhotoShape: "شكل الصورة الشخصية",
+                lblFontSize: "حجم الخط",
+                lblCatSelect: "📂 اختر القسم الوظيفي:",
+                lblSugSummaries: "📄 ملخصات شخصية جاهزة",
+                lblSugSkills: "⚡ مهارات مقترحة للقسم",
+                lblSugVerbs: "🚀 عبارات وأفعال إنجاز متخصصة",
+                lblSugVerbsTip: "انقر لإدراج العبارة مباشرة في نص النبذة الشخصية:",
+                lblAtsTitle: "تقييم ملاءمة السيرة الذاتية",
+                lblAtsSub: "تحليل فحص نظام تتبع المتقدمين (ATS)",
+                cvSummary: "النبذة الشخصية",
+                cvExp: "الخبرات المهنية",
+                cvEdu: "المؤهلات التعليمية",
+                cvSkills: "المهارات والخبرات",
+                cvProjects: "المشاريع والشهادات",
+                expTitle: "خبرة #",
+                eduTitle: "مؤهل #",
+                skillTitle: "مهارة #",
+                projTitle: "مشروع / شهادة #",
+                phCompany: "الشركة / المؤسسة",
+                phPosition: "المسمى الوظيفي",
+                phDates: "الفترة (مثال: 2021 - 2023)",
+                phDesc: "الوصف والمهام والإنجازات",
+                phSchool: "الجامعة / الكلية",
+                phDegree: "الدرجة والتخصص",
+                phSkillName: "المهارة",
+                phSkillLevel: "النسبة %",
+                phProjName: "العنوان / اسم الشهادة",
+                phProjDesc: "التفاصيل الوصفية"
+            },
+            en: {
+                logoTitle: "CV Builder Pro",
+                btnPrint: "Print / PDF",
+                btnExport: "Export JSON",
+                btnImport: "Import JSON",
+                saveStatus: "Auto Saved...",
+                tabContent: "📝 Content",
+                tabDesign: "🎨 Design",
+                tabSug: "💡 Suggestions",
+                tabAts: "📊 ATS Check",
+                headPersonal: "👤 Personal Details",
+                headExp: "💼 Work Experience",
+                headEdu: "🎓 Education",
+                headSkills: "⚡ Skills",
+                headProjects: "🚀 Projects & Certifications",
+                lblUploadPhoto: "Upload Photo",
+                lblFullName: "Full Name",
+                lblProfTitle: "Professional Title",
+                lblEmail: "Email Address",
+                lblPhone: "Phone Number",
+                lblAddress: "Address / City",
+                lblWebsite: "Website / LinkedIn",
+                lblSummary: "Professional Summary",
+                btnAddExp: "+ Add Work Experience",
+                btnAddEdu: "+ Add Education",
+                btnAddSkill: "+ Add Skill",
+                btnAddProj: "+ Add Project / Certificate",
+                lblTemplateSelect: "Choose Template",
+                lblPrimaryColor: "Primary Color",
+                lblSecondaryColor: "Secondary Color",
+                lblPhotoShape: "Profile Picture Shape",
+                lblFontSize: "Font Size",
+                lblCatSelect: "📂 Choose Category:",
+                lblSugSummaries: "📄 Ready Professional Summaries",
+                lblSugSkills: "⚡ Recommended Skills",
+                lblSugVerbs: "🚀 Specialized Action Verbs & Bullet Points",
+                lblSugVerbsTip: "Click to insert phrase directly into summary text:",
+                lblAtsTitle: "CV Suitability Score",
+                lblAtsSub: "Applicant Tracking System (ATS) Analysis",
+                cvSummary: "Professional Summary",
+                cvExp: "Work Experience",
+                cvEdu: "Education",
+                cvSkills: "Skills & Expertise",
+                cvProjects: "Projects & Certifications",
+                expTitle: "Experience #",
+                eduTitle: "Education #",
+                skillTitle: "Skill #",
+                projTitle: "Project / Certificate #",
+                phCompany: "Company / Organization",
+                phPosition: "Job Title / Position",
+                phDates: "Period (e.g. 2021 - Present)",
+                phDesc: "Description, Duties & Achievements",
+                phSchool: "University / College",
+                phDegree: "Degree & Major",
+                phSkillName: "Skill Name",
+                phSkillLevel: "Level %",
+                phProjName: "Title / Certificate Name",
+                phProjDesc: "Descriptive Details"
+            }
+        };
+
+        /* ==========================================================================
+           2. DUAL-LANGUAGE CATEGORIZED SUGGESTIONS DATABASE
+           ========================================================================== */
+        const categoryData = {
+            ar: {
+                accounting: {
+                    title: "📊 قسم المحاسبة والمالية",
+                    summaries: [
+                        "محاسب ماليات متمرس يمتلك خبرة تتجاوز 4 سنوات في إعداد القوائم المالية، إدارة الحسابات العامة، وإجراء التسويات البنكية ومطابقة الحسابات بدقة عالية وفق معايير المحاسبة الدولية.",
+                        "أخصائي محاسبة وتدقيق مالي متقن لبرامج ERP وتطبيقات Excel المتقدمة، يتميز بكفاءة عالية في إدارة التدفقات النقدية، إعداد التقارير الضريبية، وتقليل الهدر المالي.",
+                        "محاسب تكاليف وميزانيات ذو مهارات عالية في تحليل المصروفات، إعداد الموازنات التقديرية، والرقابة المالية لدعم اتخاذ القرارات الإدارية السليمة."
+                    ],
+                    skills: [
+                        "إعداد القوائم المالية (Financial Statements)",
+                        "التحليل والتخطيط المالي (FP&A)",
+                        "المحاسبة الضريبية وإقرارات VAT",
+                        "برامج ERP (Odoo / Dynamics AX)",
+                        "Excel المتقدم (VLOOKUP & Pivot Tables)",
+                        "المراجعة والتدقيق الداخلي",
+                        "إدارة التدفقات النقدية (Cash Flow)",
+                        "حسابات العملاء والموردين (AR/AP)",
+                        "إعداد الميزانيات والتسويات البنكية"
+                    ],
+                    verbs: [
+                        "أعددت القوائم المالية السنوية والشهرية وفق المعايير الدولية",
+                        "حققت خفضاً في الأخطاء المحاسبية بنسبة 25% من خلال أتمتة القيود",
+                        "أدرت التسويات البنكية ومطابقة حسابات الموردين والعملاء",
+                        "أشرفت على إعداد الإقرارات الضريبية وضريبة القيمة المضافة"
+                    ]
+                },
+                admin: {
+                    title: "🏢 قسم إدارة الأعمال والتنفيذ",
+                    summaries: [
+                        "مدير أجرائي وإداري يمتلك خبرة واسعة في تنظيم العمليات اليومية للمؤسسات، التخطيط الاستراتيجي، وإدارة فرق العمل متعددة المهام لتحقيق الأهداف المؤسسية بكفاءة.",
+                        "أخصائي إدارة أعمال وتطوير مؤسسي متمكن من إدارة المشاريع، تحسين سياق العمليات (Process Optimization)، والتنسيق بين الأقسام التنفيذية لرفع الإنتاجية."
+                    ],
+                    skills: [
+                        "التخطيط الاستراتيجي والتشغيلي",
+                        "إدارة المشاريع (Agile / PMP)",
+                        "إدارة العمليات وسلاسل الإمداد",
+                        "إدارة فرق العمل والقيادة",
+                        "إعداد التقارير التنفيذية",
+                        "حل المشكلات واتخاذ القرار"
+                    ],
+                    verbs: [
+                        "قدت فريق عمل تنفيذي مكون من 12 موظفاً لتحقيق الأهداف التشغيلية",
+                        "حسّنت كفاءة سير العمل الداخلي بنسبة 30% عبر تقليل الدورة المستندية",
+                        "طوّرت دليل سياسات وإجراءات العمل الإداري للشركة"
+                    ]
+                },
+                dev: {
+                    title: "💻 قسم البرمجة وتكنولوجيا المعلومات",
+                    summaries: [
+                        "مهندس برمجيات ومطور واجهات متكامل يمتلك خبرة ممتازة في بناء تطبيقات الويب والأنظمة السحابية باستخدام أحدث الأطر البرمجية، مع الالتزام بكتابة كود نظيف وآمن قابل للتوسع.",
+                        "مطور تطبيقات ومحلل نظم متخصص في تصميم وتطوير الحلول البرمجية الذكية، إدارة قواعد البيانات، وتحسين كفاءة أداء الأنظمة والتكامل البرمجي (API Integration)."
+                    ],
+                    skills: [
+                        "JavaScript / ES6+ / TypeScript",
+                        "HTML5 / CSS3 / Tailwind CSS",
+                        "React.js / Next.js / Vue.js",
+                        "Node.js / Express Backend",
+                        "Python & Data Structures",
+                        "SQL & NoSQL Databases (PostgreSQL/MongoDB)",
+                        "Git & Version Control"
+                    ],
+                    verbs: [
+                        "بنيت وصممت نظام منصة سحابية تخدم أكثر من 10,000 مستخدم نشط",
+                        "حسّنت سرعة تحميل الصفحة وأداء التطبيق بنسبة 45%",
+                        "طوّرت واجهات برمجية RESTful APIs آمنة للتكامل مع الخدمات الخارجية"
+                    ]
+                },
+                sales: {
+                    title: "📈 قسم التسويق والمبيعات",
+                    summaries: [
+                        "أخصائي تسويق رقمي ومبيعات يمتلك سجل نجاح حافل في زيادة المبيعات، إطلاق الحملات الإعلانية المستهدفة، وتوسيع القاعدة الجماهيرية للعلامات التجارية.",
+                        "مدير مبيعات وتطوير أعمال متمكن من بناء العلاقات الاستراتيجية مع العملاء، تحليل سلوك السوق، ووضع خطط تسعير وتوزيع تحقق أعلى العوائد الماليّة."
+                    ],
+                    skills: [
+                        "التسويق الرقمي (SEO / SEM)",
+                        "إدارة حملات Meta & Google Ads",
+                        "إدارة علاقات العملاء (CRM Systems)",
+                        "التفاوض وإغلاق الصفقات المبيعاتية",
+                        "كتابة المحتوى الإعلاني (Copywriting)"
+                    ],
+                    verbs: [
+                        "حققت زيادة في المبيعات السنوية بنسبة 35% في المنطقة الشرقية",
+                        "أدرت حملات تسويقية رقمية بأسلوب حقق عائداً على الاستثمار (ROI) بـ 4x",
+                        "جذبت أكثر من 50 عميلاً رئيسياً جديداً من خلال استراتيجيات التواصل المباشر"
+                    ]
+                },
+                design: {
+                    title: "🎨 قسم التصميم والإبداع الرقمي",
+                    summaries: [
+                        "مصمم واجهات وتجربة مستخدم (UI/UX) مبتكر، يركز على تحويل الأفكار المعقدة إلى واجهات رقمية جذابة وسهلة الاستخدام تعزز تفاعل المستهلك وتلبي أهداف العمل.",
+                        "مصمم جرافيك وهويات بصرية متمكن من إخراج المطبوعات والتصاميم الرقمية الاحترافية باستخدام برامج Adobe المتخصصة وبما يخدم الهوية المؤسسية."
+                    ],
+                    skills: [
+                        "UI/UX Design (Figma / Adobe XD)",
+                        "Adobe Photoshop & Illustrator",
+                        "تصميم الهويات البصرية والشعارات",
+                        "البناء المفهومي (Wireframing & Prototyping)",
+                        "Design Systems Construction"
+                    ],
+                    verbs: [
+                        "صممت نظام واجهات مستخدم متكامل لـ 3 تطبيقات هاتف ذكي",
+                        "ابتكرت الهوية البصرية الكاملة لعلامة تجارية ناشئة في مجال التقنية",
+                        "أجريت اختبارات الاستخدام (Usability Testing) التي حسّنت معدل التحويل بـ 20%"
+                    ]
+                }
+            },
+            en: {
+                accounting: {
+                    title: "📊 Accounting & Finance",
+                    summaries: [
+                        "Detail-oriented Financial Accountant with over 4 years of experience preparing financial statements, managing general ledgers, executing bank reconciliations, and ensuring compliance with IFRS standards.",
+                        "Financial Analyst & Auditor skilled in ERP software and advanced Excel. Proven track record in optimizing cash flow, preparing tax returns, and reducing financial discrepancies."
+                    ],
+                    skills: [
+                        "Financial Statements Preparation",
+                        "Financial Planning & Analysis (FP&A)",
+                        "Tax Accounting & VAT Returns",
+                        "ERP Systems (Odoo / Dynamics AX)",
+                        "Advanced Excel (VLOOKUP & Pivot Tables)",
+                        "Internal Auditing & Compliance",
+                        "Cash Flow & Budgeting"
+                    ],
+                    verbs: [
+                        "Prepared annual and monthly financial statements in compliance with IFRS standards",
+                        "Reduced accounting errors by 25% through ledger automation",
+                        "Managed monthly bank reconciliations and supplier account balances"
+                    ]
+                },
+                admin: {
+                    title: "🏢 Business Administration & Management",
+                    summaries: [
+                        "Operations & Administrative Manager with broad experience organizing daily organizational workflow, strategic planning, and leading cross-functional teams to achieve business targets.",
+                        "Business Administration Specialist adept at project management, process optimization, and executive coordination to boost operational efficiency."
+                    ],
+                    skills: [
+                        "Strategic & Operational Planning",
+                        "Project Management (Agile / PMP)",
+                        "Process Optimization & BPR",
+                        "Team Leadership & Coordination",
+                        "Executive Reporting",
+                        "Problem Solving & Decision Making"
+                    ],
+                    verbs: [
+                        "Led an executive team of 12 employees to achieve operational KPIs",
+                        "Improved internal workflow efficiency by 30% by streamlining documentation cycle",
+                        "Developed the official company administrative policy and procedure manual"
+                    ]
+                },
+                dev: {
+                    title: "💻 Software & Information Technology",
+                    summaries: [
+                        "Full-Stack Software Engineer with proven expertise building scalable web applications and cloud solutions using modern frameworks, committed to writing clean, maintainable, and secure code.",
+                        "Application Developer & Systems Analyst specializing in smart software solutions, database management, and optimizing system performance and API integrations."
+                    ],
+                    skills: [
+                        "JavaScript / ES6+ / TypeScript",
+                        "HTML5 / CSS3 / Tailwind CSS",
+                        "React.js / Next.js / Vue.js",
+                        "Node.js / Express Backend",
+                        "Python & Data Structures",
+                        "SQL & NoSQL Databases (PostgreSQL / MongoDB)",
+                        "Git & Version Control"
+                    ],
+                    verbs: [
+                        "Architected and deployed a cloud platform serving over 10,000 active users",
+                        "Optimized page load speed and application performance by 45%",
+                        "Developed secure RESTful APIs for third-party service integrations"
+                    ]
+                },
+                sales: {
+                    title: "📈 Sales & Digital Marketing",
+                    summaries: [
+                        "Digital Marketing & Sales Specialist with a track record of driving revenue growth, launching targeted ad campaigns, and expanding brand market share.",
+                        "Business Development Manager skilled in building strategic B2B relationships, market trend analysis, and creating pricing models that maximize ROI."
+                    ],
+                    skills: [
+                        "Digital Marketing (SEO / SEM)",
+                        "Meta & Google Ads Campaign Management",
+                        "CRM Systems Management",
+                        "B2B Sales Negotiation & Closing",
+                        "Ad Copywriting & Content Strategy"
+                    ],
+                    verbs: [
+                        "Achieved a 35% increase in annual sales across designated key accounts",
+                        "Managed digital marketing campaigns achieving a 4x Return on Ad Spend (ROAS)",
+                        "Acquired over 50 new B2B key accounts through targeted outreach strategies"
+                    ]
+                },
+                design: {
+                    title: "🎨 Graphic Design & UI/UX",
+                    summaries: [
+                        "Creative UI/UX Designer dedicated to converting complex requirements into intuitive, aesthetically pleasing web interfaces that enhance user engagement and drive conversion.",
+                        "Graphic & Brand Designer skilled in print and digital media using Adobe Creative Suite, focusing on cohesive brand identity building."
+                    ],
+                    skills: [
+                        "UI/UX Design (Figma / Adobe XD)",
+                        "Adobe Photoshop & Illustrator",
+                        "Brand Identity & Logo Design",
+                        "Wireframing & Interactive Prototyping",
+                        "Design Systems & Component Libraries"
+                    ],
+                    verbs: [
+                        "Designed a scalable user interface system for 3 mobile applications",
+                        "Created the full brand identity package for an emerging tech startup",
+                        "Conducted usability testing sessions that increased conversion rate by 20%"
+                    ]
+                }
+            }
+        };
+
+        /* ==========================================================================
+           3. INITIAL STATE & DEFAULT CV DATA
+           ========================================================================== */
         let stateHistory = [];
         let historyIndex = -1;
         let isUndoRedo = false;
@@ -814,7 +1123,7 @@
                 phone: '+20 100 123 4567',
                 address: 'القاهرة، مصر',
                 website: 'https://linkedin.com/in/mishal',
-                summary: 'محاسب مالي متمكن يمتلك خبرة عملية في إعداد القوائم المالية، إدارة الحسابات العامة والتسويات البنكية، والتعامل مع الأنظمة المحاسبية الحديثة وبرامج ERP. أتميز بدقة عالية في التحليل المالي والالتزام بتقديم تقارير مالية موثوقة.',
+                summary: 'محاسب مالي متمكن يمتلك خبرة عملية في إعداد القوائم المالية، إدارة الحسابات العامة والتسويات البنكية، والتعامل مع الأنظمة المحاسبية الحديثة وبرامج ERP.',
                 photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'
             },
             experiences: [
@@ -822,13 +1131,7 @@
                     company: 'شركة المجموعة العربية للتجارة',
                     position: 'محاسب حسابات عامة',
                     dates: '2023 - الحالي',
-                    desc: '• إعداد وإغلاق القوائم المالية الشهرية والسنوية بدقة عالية وفق معايير المحاسبة الدولية.\n• إدارة حسابات الموردين والعملاء وإجراء التسويات البنكية ومطابقة الأرصدة.\n• إعداد الإقرارات الضريبية (ضريبة القيمة المضافة) والتعامل مع هيئة الزكاة والضرائب.'
-                },
-                {
-                    company: 'مكتب الخبراء للتدقيق والمحاسبة',
-                    position: 'مساعد محاسب ومراجع',
-                    dates: '2021 - 2023',
-                    desc: '• مراجعة الدفاتر المحاسبية وتدقيق قيود اليومية لـ 10+ شركات تجارية.\n• المساعدة في إعداد الميزانيات التقديرية وتقارير تدفقات الخزينة النقدية.'
+                    desc: '• إعداد وإغلاق القوائم المالية الشهرية والسنوية بدقة عالية وفق معايير المحاسبة الدولية.\n• إدارة حسابات الموردين والعملاء وإجراء التسويات البنكية ومطابقة الأرصدة.'
                 }
             ],
             education: [
@@ -842,159 +1145,119 @@
             skills: [
                 { name: 'إعداد القوائم المالية', level: '95' },
                 { name: 'Excel المتقدم (Pivot & VLOOKUP)', level: '90' },
-                { name: 'برامج ERP (Odoo / Dynamics AX)', level: '85' },
-                { name: 'المحاسبة الضريبية وقيمة المضافة', level: '88' },
-                { name: 'التسويات البنكية والتدقيق', level: '92' }
+                { name: 'برامج ERP (Odoo / Dynamics AX)', level: '85' }
             ],
             projects: [
                 {
-                    name: 'شهادة أخصائي محاسب معتمد (CPA / CMA Candidate)',
-                    desc: 'دورة تدريبية متقدمة في التحليل المالي، التكاليف، والتخطيط المالي الاستراتيجي.'
+                    name: 'شهادة أخصائي محاسب معتمد (CMA Candidate)',
+                    desc: 'دورة تدريبية متقدمة في التحليل المالي والموازنات التقديرية.'
                 }
             ]
-        };
-
-        /* CATEGORIZED SUGGESTIONS DATABASE */
-        const categoryData = {
-            accounting: {
-                summaries: [
-                    "محاسب ماليات متمرس يمتلك خبرة تتجاوز 4 سنوات في إعداد القوائم المالية، إدارة الحسابات العامة، وإجراء التسويات البنكية ومطابقة الحسابات بدقة عالية وفق معايير المحاسبة الدولية.",
-                    "أخصائي محاسبة وتدقيق مالي متقن لبرامج ERP وتطبيقات Excel المتقدمة، يتميز بكفاءة عالية في إدارة التدفقات النقدية، إعداد التقارير الضريبية، وتقليل الهدر المالي.",
-                    "محاسب تكاليف وميزانيات ذو مهارات عالية في تحليل المصروفات، إعداد الموازنات التقديرية، والرقابة المالية لدعم اتخاذ القرارات الإدارية السليمة."
-                ],
-                skills: [
-                    "إعداد القوائم المالية (Financial Statements)",
-                    "التحليل والتخطيط المالي (FP&A)",
-                    "المحاسبة الضريبية وإقرارات VAT",
-                    "برامج ERP (Odoo / Dynamics AX)",
-                    "Excel المتقدم (VLOOKUP & Pivot Tables)",
-                    "المراجعة والتدقيق الداخلي",
-                    "إدارة التدفقات النقدية (Cash Flow)",
-                    "حسابات العملاء والموردين (AR/AP)",
-                    "إعداد الميزانيات والتسويات البنكية",
-                    "محاسبة التكاليف والمخزون"
-                ],
-                verbs: [
-                    "أعددت القوائم المالية السنوية والشهرية وفق المعايير الدولية",
-                    "حققت خفضاً في الأخطاء المحاسبية بنسبة 25% من خلال أتمتة القيود",
-                    "أدرت التسويات البنكية ومطابقة حسابات الموردين والعملاء",
-                    "أشرفت على إعداد الإقرارات الضريبية وضريبة القيمة المضافة",
-                    "صممت ميزانية تقديرية ساهمت في ضبط النفقات التشغيلية"
-                ]
-            },
-            admin: {
-                summaries: [
-                    "مدير أجرائي وإداري يمتلك خبرة واسعة في تنظيم العمليات اليومية للمؤسسات، التخطيط الاستراتيجي، وإدارة فرق العمل متعددة المهام لتحقيق الأهداف المؤسسية بكفاءة.",
-                    "أخصائي إدارة أعمال وتطوير مؤسسي متمكن من إدارة المشاريع، تحسين سياق العمليات (Process Optimization)، والتنسيق بين الأقسام التنفيذية لرفع الإنتاجية.",
-                    "مسؤول العلاقات الإدارية والسكرتارية التنفيذية يتميز بقدرات عالية في إدارة الوقت، التخطيط للاجتماعات، وإعداد التقارير الإدارية الموثوقة."
-                ],
-                skills: [
-                    "التخطيط الاستراتيجي والتشغيلي",
-                    "إدارة المشاريع (Agile / PMP)",
-                    "إدارة العمليات وسلاسل الإمداد",
-                    "إعادة هيكلة وتطوير العمليات (BPR)",
-                    "إدارة فرق العمل والقيادة",
-                    "إعداد التقارير التنفيذية",
-                    "إدارة الموارد البشرية (HR)",
-                    "حل المشكلات واتخاذ القرار",
-                    "إدارة علاقات العملاء والشركاء"
-                ],
-                verbs: [
-                    "قدت فريق عمل تنفيذي مكون من 12 موظفاً لتحقيق الأهداف التشغيلية",
-                    "حسّنت كفاءة سير العمل الداخلي بنسبة 30% عبر تقليل الدورة المستندية",
-                    "أشرفت على تنظيم الجدول الزمني والفعاليات الرسمية للمؤسسة",
-                    "طوّرت دليل سياسات وإجراءات العمل الإداري للشركة"
-                ]
-            },
-            dev: {
-                summaries: [
-                    "مهندس برمجيات ومطور واجهات متكامل يمتلك خبرة ممتازة في بناء تطبيقات الويب والأنظمة السحابية باستخدام أحدث الأطر البرمجية، مع الالتزام بكتابة كود نظيف وآمن قابل للتوسع.",
-                    "مطور تطبيقات ومحلل نظم متخصص في تصميم وتطوير الحلول البرمجية الذكية، إدارة قواعد البيانات، وتحسين كفاءة أداء الأنظمة والتكامل البرمجي (API Integration).",
-                    "مطور Full-Stack يمتلك شغفاً كبيراً بابتكار منتجات رقمية سلسة، ودراية عالية بأحدث تقنيات JavaScript وبنية البرمجيات الحديثة."
-                ],
-                skills: [
-                    "JavaScript / ES6+ / TypeScript",
-                    "HTML5 / CSS3 / Tailwind CSS",
-                    "React.js / Next.js / Vue.js",
-                    "Node.js / Express Backend",
-                    "Python & Data Structures",
-                    "SQL & NoSQL Databases (PostgreSQL/MongoDB)",
-                    "Git & Version Control",
-                    "RESTful APIs & GraphQL Integration",
-                    "اختبار وتصحيح الأخطاء (Unit Testing)"
-                ],
-                verbs: [
-                    "بنيت وصممت نظام منصة سحابية تخدم أكثر من 10,000 مستخدم نشط",
-                    "حسّنت سرعة تحميل الصفحة وأداء التطبيق بنسبة 45%",
-                    "طوّرت واجهات برمجية RESTful APIs آمنة للتكامل مع الخدمات الخارجية",
-                    "قدت عمليات تحويل الكود المصدري إلى بنية أكثر مرونة وقابلية للصيانة"
-                ]
-            },
-            sales: {
-                summaries: [
-                    "أخصائي تسويق رقمي ومبيعات يمتلك سجل نجاح حافل في زيادة المبيعات، إطلاق الحملات الإعلانية المستهدفة، وتوسيع القاعدة الجماهيرية للعلامات التجارية.",
-                    "مدير مبيعات وتطوير أعمال متمكن من بناء العلاقات الاستراتيجية مع العملاء، تحليل سلوك السوق، ووضع خطط تسعير وتوزيع تحقق أعلى العوائد الماليّة.",
-                    "خبير تسويق بالمحتوى وإدارة حسابات التواصل الاجتماعي يتميز بابتكار استراتيجيات نمو (Growth Hacking) جذابة تزيد من تفاعل العملاء."
-                ],
-                skills: [
-                    "التسويق الرقمي (SEO / SEM)",
-                    "إدارة حملات Meta & Google Ads",
-                    "إدارة علاقات العملاء (CRM Systems)",
-                    "التفاوض وإغلاق الصفقات المبيعاتية",
-                    "تحليل سلوك المستهلك والسوق",
-                    "كتابة المحتوى الإعلاني (Copywriting)",
-                    "إعداد خطط التسعير والتصريف",
-                    "التسويق عبر البريد الإلكتروني"
-                ],
-                verbs: [
-                    "حققت زيادة في المبيعات السنوية بنسبة 35% في المنطقة الشرقية",
-                    "أدرت حملات تسويقية رقمية بأسلوب حقق عائداً على الاستثمار (ROI) بـ 4x",
-                    "جذبت أكثر من 50 عميلاً رئيسياً جديداً من خلال استراتيجيات التواصل المباشر",
-                    "طوّرت خطة إعادة إطلاق المنتج التي رفعت حصة الشركة في السوق"
-                ]
-            },
-            design: {
-                summaries: [
-                    "مصمم واجهات وتجربة مستخدم (UI/UX) مبتكر، يركز على تحويل الأفكار المعقدة إلى واجهات رقمية جذابة وسهلة الاستخدام تعزز تفاعل المستهلك وتلبي أهداف العمل.",
-                    "مصمم جرافيك وهويات بصرية متمكن من إخراج المطبوعات والتصاميم الرقمية الاحترافية باستخدام برامج Adobe المتخصصة وبما يخدم الهوية المؤسسية.",
-                    "مصمم ومنتج وسائط متعددة (Motion Graphics) يمتلك حسّاً فنياً راقياً في إعداد الفيديوهات الترويجية والرسومات المتحركة المبدعة."
-                ],
-                skills: [
-                    "UI/UX Design (Figma / Adobe XD)",
-                    "Adobe Photoshop & Illustrator",
-                    "تصميم الهويات البصرية والشعارات",
-                    "البناء المفهومي (Wireframing & Prototyping)",
-                    "تصميم المطبوعات والعروض التقديمية",
-                    "Motion Graphics & After Effects",
-                    "إنشاء أنظمة التصميم (Design Systems)"
-                ],
-                verbs: [
-                    "صممت نظام واجهات مستخدم متكامل لـ 3 تطبيقات هاتف ذكي",
-                    "ابتكرت الهوية البصرية الكاملة لعلامة تجارية ناشئة في مجال التقنية",
-                    "أجريت اختبارات الاستخدام (Usability Testing) التي حسّنت معدل التحويل بـ 20%",
-                    "أعدت تصميم الموقع الرئيسي للشركة ليكون أكثر ملاءمة للهواتف"
-                ]
-            }
         };
 
         let cvData = JSON.parse(JSON.stringify(defaultData));
 
         /* ==========================================================================
-           2. DOM LOAD & BINDING
+           4. DOM INITIALIZATION
            ========================================================================== */
         document.addEventListener('DOMContentLoaded', () => {
             loadLocalStorage();
+            applyLanguageUI();
             syncFormFields();
             renderPreview();
-            switchCategory('accounting'); // Default to Accounting Category
-            runATSCheck();
             saveState();
 
-            // Autosave timer
+            // Auto Save Interval (5 Seconds)
             setInterval(() => {
                 saveLocalStorage(true);
             }, 5000);
         });
+
+        /* ==========================================================================
+           5. LANGUAGE SWITCH ENGINE
+           ========================================================================== */
+        function toggleLang() {
+            cvData.lang = (cvData.lang === 'ar') ? 'en' : 'ar';
+            applyLanguageUI();
+            renderPreview();
+            saveState();
+            showToast(cvData.lang === 'ar' ? 'تم التحويل إلى اللغة العربية' : 'Switched to English');
+        }
+
+        function applyLanguageUI() {
+            const lang = cvData.lang || 'ar';
+            const dict = i18n[lang];
+
+            // Set HTML Dir and Lang
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+
+            // Update Toggle Button Text
+            document.getElementById('btnLangToggle').innerText = (lang === 'ar') ? 'English' : 'عربي';
+
+            // Localize Static UI Text Nodes
+            document.getElementById('txtLogoTitle').innerText = dict.logoTitle;
+            document.getElementById('txtBtnPrint').innerText = dict.btnPrint;
+            document.getElementById('txtBtnExport').innerText = dict.btnExport;
+            document.getElementById('txtBtnImport').innerText = dict.btnImport;
+            document.getElementById('saveStatusText').innerText = dict.saveStatus;
+
+            document.getElementById('tabBtnContent').innerText = dict.tabContent;
+            document.getElementById('tabBtnDesign').innerText = dict.tabDesign;
+            document.getElementById('tabBtnSug').innerText = dict.tabSug;
+            document.getElementById('tabBtnAts').innerText = dict.tabAts;
+
+            document.getElementById('headPersonal').innerText = dict.headPersonal;
+            document.getElementById('headExp').innerText = dict.headExp;
+            document.getElementById('headEdu').innerText = dict.headEdu;
+            document.getElementById('headSkills').innerText = dict.headSkills;
+            document.getElementById('headProjects').innerText = dict.headProjects;
+
+            document.getElementById('lblUploadPhoto').innerText = dict.lblUploadPhoto;
+            document.getElementById('lblFullName').innerText = dict.lblFullName;
+            document.getElementById('lblProfTitle').innerText = dict.lblProfTitle;
+            document.getElementById('lblEmail').innerText = dict.lblEmail;
+            document.getElementById('lblPhone').innerText = dict.lblPhone;
+            document.getElementById('lblAddress').innerText = dict.lblAddress;
+            document.getElementById('lblWebsite').innerText = dict.lblWebsite;
+            document.getElementById('lblSummary').innerText = dict.lblSummary;
+
+            document.getElementById('btnAddExp').innerText = dict.btnAddExp;
+            document.getElementById('btnAddEdu').innerText = dict.btnAddEdu;
+            document.getElementById('btnAddSkill').innerText = dict.btnAddSkill;
+            document.getElementById('btnAddProj').innerText = dict.btnAddProj;
+
+            document.getElementById('lblTemplateSelect').innerText = dict.lblTemplateSelect;
+            document.getElementById('lblPrimaryColor').innerText = dict.lblPrimaryColor;
+            document.getElementById('lblSecondaryColor').innerText = dict.lblSecondaryColor;
+            document.getElementById('lblPhotoShape').innerText = dict.lblPhotoShape;
+            document.getElementById('lblFontSize').innerText = dict.lblFontSize;
+
+            document.getElementById('lblCatSelect').innerText = dict.lblCatSelect;
+            document.getElementById('lblSugSummaries').innerText = dict.lblSugSummaries;
+            document.getElementById('lblSugSkills').innerText = dict.lblSugSkills;
+            document.getElementById('lblSugVerbs').innerText = dict.lblSugVerbs;
+            document.getElementById('lblSugVerbsTip').innerText = dict.lblSugVerbsTip;
+
+            document.getElementById('lblAtsTitle').innerText = dict.lblAtsTitle;
+            document.getElementById('lblAtsSub').innerText = dict.lblAtsSub;
+
+            // Re-populate Category Dropdown with current language categories
+            populateCategoryDropdown();
+            renderArrayEditors();
+        }
+
+        function populateCategoryDropdown() {
+            const lang = cvData.lang || 'ar';
+            const cats = categoryData[lang];
+            const select = document.getElementById('categorySelect');
+            
+            select.innerHTML = Object.keys(cats).map(key => `
+                <option value="${key}">${cats[key].title}</option>
+            `).join('');
+
+            switchCategory(select.value || 'accounting');
+        }
 
         function syncFormFields() {
             document.getElementById('fullName').value = cvData.personal.fullName || '';
@@ -1011,82 +1274,83 @@
         }
 
         /* ==========================================================================
-           3. DYNAMIC FORM ARRAY EDITORS
+           6. ARRAY EDITORS
            ========================================================================== */
         function renderArrayEditors() {
+            const lang = cvData.lang || 'ar';
+            const dict = i18n[lang];
+
             // Experiences
-            const expContainer = document.getElementById('experienceList');
-            expContainer.innerHTML = cvData.experiences.map((item, idx) => `
+            document.getElementById('experienceList').innerHTML = cvData.experiences.map((item, idx) => `
                 <div class="item-card">
                     <div class="item-card-header">
-                        <strong>خبرة #${idx + 1}</strong>
+                        <strong>${dict.expTitle}${idx + 1}</strong>
                         <button class="btn btn-danger btn-icon btn-sm" onclick="removeArrayItem('experiences', ${idx})">✕</button>
                     </div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="الشركة / المؤسسة" value="${item.company}" oninput="updateArrayItem('experiences', ${idx}, 'company', this.value)"></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="المسمى الوظيفي" value="${item.position}" oninput="updateArrayItem('experiences', ${idx}, 'position', this.value)"></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="الفترة (مثال: 2021 - 2023)" value="${item.dates}" oninput="updateArrayItem('experiences', ${idx}, 'dates', this.value)"></div>
-                    <div class="form-group"><textarea class="form-control" placeholder="الوصف والمهام والإنجازات" oninput="updateArrayItem('experiences', ${idx}, 'desc', this.value)">${item.desc}</textarea></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="${dict.phCompany}" value="${item.company}" oninput="updateArrayItem('experiences', ${idx}, 'company', this.value)"></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="${dict.phPosition}" value="${item.position}" oninput="updateArrayItem('experiences', ${idx}, 'position', this.value)"></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="${dict.phDates}" value="${item.dates}" oninput="updateArrayItem('experiences', ${idx}, 'dates', this.value)"></div>
+                    <div class="form-group"><textarea class="form-control" placeholder="${dict.phDesc}" oninput="updateArrayItem('experiences', ${idx}, 'desc', this.value)">${item.desc}</textarea></div>
                 </div>
             `).join('');
 
             // Education
-            const eduContainer = document.getElementById('educationList');
-            eduContainer.innerHTML = cvData.education.map((item, idx) => `
+            document.getElementById('educationList').innerHTML = cvData.education.map((item, idx) => `
                 <div class="item-card">
                     <div class="item-card-header">
-                        <strong>مؤهل #${idx + 1}</strong>
+                        <strong>${dict.eduTitle}${idx + 1}</strong>
                         <button class="btn btn-danger btn-icon btn-sm" onclick="removeArrayItem('education', ${idx})">✕</button>
                     </div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="الجامعة / الكلية" value="${item.school}" oninput="updateArrayItem('education', ${idx}, 'school', this.value)"></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="الدرجة والتخصص" value="${item.degree}" oninput="updateArrayItem('education', ${idx}, 'degree', this.value)"></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="السنة / الفترة" value="${item.dates}" oninput="updateArrayItem('education', ${idx}, 'dates', this.value)"></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="${dict.phSchool}" value="${item.school}" oninput="updateArrayItem('education', ${idx}, 'school', this.value)"></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="${dict.phDegree}" value="${item.degree}" oninput="updateArrayItem('education', ${idx}, 'degree', this.value)"></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="${dict.phDates}" value="${item.dates}" oninput="updateArrayItem('education', ${idx}, 'dates', this.value)"></div>
                 </div>
             `).join('');
 
             // Skills
-            const skillContainer = document.getElementById('skillsList');
-            skillContainer.innerHTML = cvData.skills.map((item, idx) => `
+            document.getElementById('skillsList').innerHTML = cvData.skills.map((item, idx) => `
                 <div class="item-card">
                     <div class="item-card-header">
-                        <strong>مهارة #${idx + 1}</strong>
+                        <strong>${dict.skillTitle}${idx + 1}</strong>
                         <button class="btn btn-danger btn-icon btn-sm" onclick="removeArrayItem('skills', ${idx})">✕</button>
                     </div>
                     <div class="grid-2">
-                        <input type="text" class="form-control" placeholder="المهارة" value="${item.name}" oninput="updateArrayItem('skills', ${idx}, 'name', this.value)">
-                        <input type="number" class="form-control" placeholder="النسبة %" value="${item.level}" min="10" max="100" oninput="updateArrayItem('skills', ${idx}, 'level', this.value)">
+                        <input type="text" class="form-control" placeholder="${dict.phSkillName}" value="${item.name}" oninput="updateArrayItem('skills', ${idx}, 'name', this.value)">
+                        <input type="number" class="form-control" placeholder="${dict.phSkillLevel}" value="${item.level}" min="10" max="100" oninput="updateArrayItem('skills', ${idx}, 'level', this.value)">
                     </div>
                 </div>
             `).join('');
 
             // Projects
-            const projContainer = document.getElementById('projectsList');
-            projContainer.innerHTML = cvData.projects.map((item, idx) => `
+            document.getElementById('projectsList').innerHTML = cvData.projects.map((item, idx) => `
                 <div class="item-card">
                     <div class="item-card-header">
-                        <strong>مشروع / شهادة #${idx + 1}</strong>
+                        <strong>${dict.projTitle}${idx + 1}</strong>
                         <button class="btn btn-danger btn-icon btn-sm" onclick="removeArrayItem('projects', ${idx})">✕</button>
                     </div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="العنوان / اسم الشهادة" value="${item.name}" oninput="updateArrayItem('projects', ${idx}, 'name', this.value)"></div>
-                    <div class="form-group"><textarea class="form-control" placeholder="التفاصيل الوصفية" oninput="updateArrayItem('projects', ${idx}, 'desc', this.value)">${item.desc}</textarea></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="${dict.phProjName}" value="${item.name}" oninput="updateArrayItem('projects', ${idx}, 'name', this.value)"></div>
+                    <div class="form-group"><textarea class="form-control" placeholder="${dict.phProjDesc}" oninput="updateArrayItem('projects', ${idx}, 'desc', this.value)">${item.desc}</textarea></div>
                 </div>
             `).join('');
         }
 
         /* ==========================================================================
-           4. RENDER CV PREVIEW
+           7. RENDER PREVIEW (CV CANVAS)
            ========================================================================== */
         function renderPreview() {
             const canvas = document.getElementById('paperCanvas');
             canvas.className = `paper-canvas tmpl-${cvData.template}`;
-
+            
             const p = cvData.personal;
+            const lang = cvData.lang || 'ar';
+            const dict = i18n[lang];
 
             canvas.innerHTML = `
                 <div class="cv-header">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <div>
-                            <div class="cv-name">${p.fullName || 'الاسم الكامل'}</div>
-                            <div class="cv-title">${p.title || 'المسمى الوظيفي'}</div>
+                            <div class="cv-name">${p.fullName || (lang==='ar'?'الاسم الكامل':'Full Name')}</div>
+                            <div class="cv-title">${p.title || (lang==='ar'?'المسمى الوظيفي':'Job Title')}</div>
                         </div>
                         ${p.photo ? `<img src="${p.photo}" class="cv-avatar ${cvData.photoShape}" alt="Avatar">` : ''}
                     </div>
@@ -1101,13 +1365,13 @@
 
                 ${p.summary ? `
                 <div class="cv-section">
-                    <div class="cv-section-title">النبذة الشخصية</div>
+                    <div class="cv-section-title">${dict.cvSummary}</div>
                     <div class="cv-item-desc">${p.summary}</div>
                 </div>` : ''}
 
                 ${cvData.experiences.length > 0 ? `
                 <div class="cv-section">
-                    <div class="cv-section-title">الخبرات المهنية</div>
+                    <div class="cv-section-title">${dict.cvExp}</div>
                     ${cvData.experiences.map(exp => `
                         <div class="cv-item">
                             <div class="cv-item-header">
@@ -1122,7 +1386,7 @@
 
                 ${cvData.education.length > 0 ? `
                 <div class="cv-section">
-                    <div class="cv-section-title">المؤهلات التعليمية</div>
+                    <div class="cv-section-title">${dict.cvEdu}</div>
                     ${cvData.education.map(edu => `
                         <div class="cv-item">
                             <div class="cv-item-header">
@@ -1137,7 +1401,7 @@
 
                 ${cvData.skills.length > 0 ? `
                 <div class="cv-section">
-                    <div class="cv-section-title">المهارات والخبرات</div>
+                    <div class="cv-section-title">${dict.cvSkills}</div>
                     <div class="cv-skills-grid">
                         ${cvData.skills.map(sk => `<span class="cv-skill-tag">${sk.name}</span>`).join('')}
                     </div>
@@ -1145,7 +1409,7 @@
 
                 ${cvData.projects.length > 0 ? `
                 <div class="cv-section">
-                    <div class="cv-section-title">المشاريع والشهادات</div>
+                    <div class="cv-section-title">${dict.cvProjects}</div>
                     ${cvData.projects.map(pj => `
                         <div class="cv-item">
                             <div class="cv-item-header"><span>${pj.name}</span></div>
@@ -1159,29 +1423,28 @@
         }
 
         /* ==========================================================================
-           5. CATEGORIZED SUGGESTIONS SYSTEM
+           8. CATEGORY SUGGESTIONS ACTIONS
            ========================================================================== */
         function switchCategory(catKey) {
-            const data = categoryData[catKey] || categoryData.accounting;
+            const lang = cvData.lang || 'ar';
+            const catDict = categoryData[lang];
+            const data = catDict[catKey] || catDict.accounting;
 
             // Render Summaries
-            const sumContainer = document.getElementById('categorySummaryContainer');
-            sumContainer.innerHTML = data.summaries.map((txt) => `
+            document.getElementById('categorySummaryContainer').innerHTML = data.summaries.map((txt) => `
                 <div class="sug-card-text">
                     <p style="margin-bottom:8px;">"${txt}"</p>
-                    <button class="btn btn-primary btn-sm" onclick="applySummaryText('${txt.replace(/'/g, "\\'")}')">إدراج في النبذة</button>
+                    <button class="btn btn-primary btn-sm" onclick="applySummaryText('${txt.replace(/'/g, "\\'")}')">${lang === 'ar' ? 'إدراج في النبذة' : 'Insert Summary'}</button>
                 </div>
             `).join('');
 
             // Render Skills
-            const skillContainer = document.getElementById('categorySkillsContainer');
-            skillContainer.innerHTML = data.skills.map(sk => `
+            document.getElementById('categorySkillsContainer').innerHTML = data.skills.map(sk => `
                 <span class="sug-chip" onclick="addSuggestedSkill('${sk}')">+ ${sk}</span>
             `).join('');
 
             // Render Verbs
-            const verbContainer = document.getElementById('categoryVerbsContainer');
-            verbContainer.innerHTML = data.verbs.map(v => `
+            document.getElementById('categoryVerbsContainer').innerHTML = data.verbs.map(v => `
                 <span class="sug-chip" onclick="insertActionVerb('${v}')">📌 ${v}</span>
             `).join('');
         }
@@ -1191,7 +1454,7 @@
             document.getElementById('summary').value = text;
             renderPreview();
             saveState();
-            showToast("تم إدراج النبذة الشخصية بنجاح!");
+            showToast(cvData.lang === 'ar' ? "تم إدراج النبذة بنجاح!" : "Summary inserted successfully!");
         }
 
         function insertActionVerb(verb) {
@@ -1201,7 +1464,7 @@
             cvData.personal.summary = summaryEl.value;
             renderPreview();
             saveState();
-            showToast("تمت إضافة العبارة لنص النبذة!");
+            showToast(cvData.lang === 'ar' ? "تمت إضافة العبارة بنجاح!" : "Phrase added successfully!");
         }
 
         function addSuggestedSkill(skillName) {
@@ -1211,14 +1474,14 @@
                 renderArrayEditors();
                 renderPreview();
                 saveState();
-                showToast(`تمت إضافة مهارة: ${skillName}`);
+                showToast(`${cvData.lang==='ar'?'تمت إضافة مهارة':'Added skill'}: ${skillName}`);
             } else {
-                showToast("المهارة موجودة بالفعل بالجدول!");
+                showToast(cvData.lang==='ar'?'المهارة موجودة بالفعل!':'Skill already exists!');
             }
         }
 
         /* ==========================================================================
-           6. HELPERS, ATS & STORAGE HANDLERS
+           9. HELPERS, ATS & STORAGE HANDLERS
            ========================================================================== */
         function updateField(path, value) {
             const parts = path.split('.');
@@ -1262,8 +1525,7 @@
         }
 
         function toggleAccordion(header) {
-            const item = header.parentElement;
-            item.classList.toggle('active');
+            header.parentElement.classList.toggle('active');
         }
 
         function changeTemplate(tmpl) {
@@ -1312,29 +1574,21 @@
 
         function toggleDarkMode() {
             const current = document.documentElement.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
+            document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
         }
 
-        function toggleLang() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-            document.getElementById('btnLangToggle').innerText = currentLang === 'ar' ? 'English' : 'عربي';
-            showToast(currentLang === 'ar' ? 'تم التغيير للغة العربية' : 'Switched to English');
-        }
-
-        /* ATS Analysis Engine */
         function runATSCheck() {
             let score = 100;
             const tips = [];
+            const isAr = (cvData.lang === 'ar');
 
-            if (!cvData.personal.email) { score -= 15; tips.push("❌ البريد الإلكتروني مفقود."); }
-            if (!cvData.personal.phone) { score -= 15; tips.push("❌ رقم الهاتف مفقود."); }
-            if (!cvData.personal.summary || cvData.personal.summary.length < 50) { score -= 15; tips.push("⚠️ النبذة الشخصية قصيرة جداً."); }
-            if (cvData.skills.length < 3) { score -= 10; tips.push("⚠️ أضف على الأقل 3 مهارات رئيسية."); }
-            if (cvData.experiences.length === 0) { score -= 20; tips.push("❌ يُفضل إضافة خبرة عمل واحدة على الأقل."); }
+            if (!cvData.personal.email) { score -= 15; tips.push(isAr ? "❌ البريد الإلكتروني مفقود." : "❌ Missing Email address."); }
+            if (!cvData.personal.phone) { score -= 15; tips.push(isAr ? "❌ رقم الهاتف مفقود." : "❌ Missing Phone number."); }
+            if (!cvData.personal.summary || cvData.personal.summary.length < 40) { score -= 15; tips.push(isAr ? "⚠️ النبذة الشخصية قصيرة." : "⚠️ Professional summary is too short."); }
+            if (cvData.skills.length < 3) { score -= 10; tips.push(isAr ? "⚠️ أضف 3 مهارات على الأقل." : "⚠️ Add at least 3 skills."); }
+            if (cvData.experiences.length === 0) { score -= 20; tips.push(isAr ? "❌ يُفضل إضافة خبرة عمل." : "❌ Add at least one work experience."); }
 
-            if (score === 100) tips.push("✅ سيرتك الذاتية ممتازة ومتوافقة تماماً مع أنظمة ATS!");
+            if (score === 100) tips.push(isAr ? "✅ سيرتك الذاتية متوافقة تماماً مع أنظمة ATS!" : "✅ Perfect CV structure for ATS!");
 
             const circle = document.getElementById('atsScoreCircle');
             if (circle) circle.style.setProperty('--score', score);
@@ -1342,17 +1596,12 @@
             if (val) val.innerText = score + '%';
 
             const tipsList = document.getElementById('atsTipsList');
-            if (tipsList) {
-                tipsList.innerHTML = tips.map(t => `<div class="tip-item">${t}</div>`).join('');
-            }
+            if (tipsList) tipsList.innerHTML = tips.map(t => `<div class="tip-item">${t}</div>`).join('');
         }
 
-        /* History & Storage */
         function saveState() {
             if (isUndoRedo) return;
-            if (historyIndex < stateHistory.length - 1) {
-                stateHistory = stateHistory.slice(0, historyIndex + 1);
-            }
+            if (historyIndex < stateHistory.length - 1) stateHistory = stateHistory.slice(0, historyIndex + 1);
             stateHistory.push(JSON.stringify(cvData));
             historyIndex = stateHistory.length - 1;
         }
@@ -1362,10 +1611,11 @@
                 historyIndex--;
                 cvData = JSON.parse(stateHistory[historyIndex]);
                 isUndoRedo = true;
+                applyLanguageUI();
                 syncFormFields();
                 renderPreview();
                 isUndoRedo = false;
-                showToast("تم التراجع");
+                showToast(cvData.lang === 'ar' ? "تم التراجع" : "Undo executed");
             }
         }
 
@@ -1374,21 +1624,22 @@
                 historyIndex++;
                 cvData = JSON.parse(stateHistory[historyIndex]);
                 isUndoRedo = true;
+                applyLanguageUI();
                 syncFormFields();
                 renderPreview();
                 isUndoRedo = false;
-                showToast("تمت الإعادة");
+                showToast(cvData.lang === 'ar' ? "تمت الإعادة" : "Redo executed");
             }
         }
 
         function saveLocalStorage(silent = false) {
-            localStorage.setItem('cv_builder_black_data', JSON.stringify(cvData));
-            if (!silent) showToast("تم حفظ البيانات تلقائياً");
-            document.getElementById('saveStatusText').innerText = "تم الحفظ " + new Date().toLocaleTimeString('ar-SA', {hour:'2-digit', minute:'2-digit'});
+            localStorage.setItem('cv_builder_bilingual_data', JSON.stringify(cvData));
+            if (!silent) showToast(cvData.lang === 'ar' ? "تم حفظ البيانات تلقائياً" : "Data saved automatically");
+            document.getElementById('saveStatusText').innerText = (cvData.lang==='ar'?'تم الحفظ ':'Saved ') + new Date().toLocaleTimeString();
         }
 
         function loadLocalStorage() {
-            const saved = localStorage.getItem('cv_builder_black_data');
+            const saved = localStorage.getItem('cv_builder_bilingual_data');
             if (saved) {
                 try { cvData = JSON.parse(saved); } catch (e) {}
             }
@@ -1411,20 +1662,22 @@
                 reader.onload = function(evt) {
                     try {
                         cvData = JSON.parse(evt.target.result);
+                        applyLanguageUI();
                         syncFormFields();
                         renderPreview();
                         saveState();
-                        showToast("تم استيراد الملف بنجاح");
-                    } catch (err) { alert("ملف JSON غير صالح."); }
+                        showToast(cvData.lang === 'ar' ? "تم استيراد الملف بنجاح" : "JSON imported successfully");
+                    } catch (err) { alert("Invalid JSON file."); }
                 };
                 reader.readAsText(file);
             }
         }
 
         function resetData() {
-            if (confirm("هل أنت متأكد من مسح جميع البيانات والإعادة للوضع الافتراضي؟")) {
-                localStorage.removeItem('cv_builder_black_data');
+            if (confirm(cvData.lang === 'ar' ? "هل أنت متأكد من إعادة الضبط؟" : "Are you sure you want to reset all data?")) {
+                localStorage.removeItem('cv_builder_bilingual_data');
                 cvData = JSON.parse(JSON.stringify(defaultData));
+                applyLanguageUI();
                 syncFormFields();
                 renderPreview();
                 saveState();
